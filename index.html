@@ -12,41 +12,71 @@
         }
 
         body {
-            background: #0a0a0a;
-            color: #d4d4d4;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.8;
-            font-size: 18px;
+            background: #0d0d0d;
+            color: #c9d1d9;
+            font-family: "Berkeley Mono", "JetBrains Mono", "Fira Code", "Consolas", monospace;
+            line-height: 1.7;
+            font-size: 17px;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 100px 32px;
         }
 
         header {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+            position: relative;
         }
 
         h1 {
-            font-size: 32px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 24px;
+            font-size: 48px;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        h1::before {
+            content: "> ";
+            color: #00ff88;
+            opacity: 0.5;
         }
 
         .intro {
-            font-size: 20px;
-            color: #a0a0a0;
-            margin-bottom: 120px;
+            font-size: 22px;
+            color: #8b949e;
+            margin-bottom: 140px;
+            padding: 24px;
+            border-left: 3px solid #21262d;
+            background: linear-gradient(90deg, rgba(33, 38, 45, 0.3) 0%, transparent 100%);
+            font-style: italic;
         }
 
         section {
-            margin-bottom: 100px;
+            margin-bottom: 120px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 32px;
+            border: 1px solid #21262d;
+            background: rgba(13, 13, 13, 0.6);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #00ff88, #00aaff);
+            transition: height 0.6s ease;
         }
 
         section.visible {
@@ -54,16 +84,33 @@
             transform: translateY(0);
         }
 
-        h2 {
-            font-size: 22px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 20px;
+        section.visible::before {
+            height: 100%;
         }
 
-        p, ul {
-            color: #a0a0a0;
+        h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88, transparent);
+        }
+
+        p {
+            color: #8b949e;
             margin-bottom: 16px;
+            font-size: 18px;
         }
 
         ul {
@@ -72,16 +119,57 @@
         }
 
         li {
-            margin-bottom: 12px;
-            padding-left: 20px;
+            margin-bottom: 16px;
+            padding-left: 32px;
             position: relative;
+            color: #8b949e;
+            font-size: 17px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        li:before {
-            content: "–";
+        li:hover {
+            color: #c9d1d9;
+            transform: translateX(4px);
+        }
+
+        li::before {
+            content: "▸";
             position: absolute;
             left: 0;
-            color: #505050;
+            color: #00ff88;
+            font-size: 20px;
+        }
+
+        section:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        section:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        section:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        section:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+
+        section:nth-child(6) {
+            transition-delay: 0.5s;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         }
 
         @media (max-width: 768px) {
@@ -90,29 +178,46 @@
             }
 
             .container {
-                padding: 60px 20px;
+                padding: 80px 24px;
             }
 
             h1 {
-                font-size: 28px;
+                font-size: 36px;
             }
 
             .intro {
-                font-size: 18px;
-                margin-bottom: 80px;
+                font-size: 19px;
+                margin-bottom: 100px;
+                padding: 20px;
             }
 
             h2 {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             section {
                 margin-bottom: 80px;
+                padding: 24px;
+            }
+
+            li {
+                font-size: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            section {
+                transition: none;
+            }
+
+            li {
+                transition: none;
             }
         }
     </style>
 </head>
 <body>
+    <div class="grain"></div>
     <div class="container">
         <header>
             <h1>0xPrimogenitum</h1>
@@ -166,7 +271,7 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
 
         sections.forEach(section => observer.observe(section));
     </script>
