@@ -109,35 +109,13 @@
 
         p {
             color: #8b949e;
-            margin-bottom: 16px;
-            font-size: 18px;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 16px;
-            padding-left: 32px;
-            position: relative;
-            color: #8b949e;
+            margin-bottom: 18px;
             font-size: 17px;
-            transition: color 0.3s ease, transform 0.3s ease;
+            line-height: 1.8;
         }
 
-        li:hover {
-            color: #c9d1d9;
-            transform: translateX(4px);
-        }
-
-        li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #00ff88;
-            font-size: 20px;
+        p:last-child {
+            margin-bottom: 0;
         }
 
         section:nth-child(2) {
@@ -200,17 +178,13 @@
                 padding: 24px;
             }
 
-            li {
+            p {
                 font-size: 16px;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
             section {
-                transition: none;
-            }
-
-            li {
                 transition: none;
             }
         }
@@ -227,39 +201,34 @@
 
         <section>
             <h2>Philosophy</h2>
-            <p>I dislike black boxes. I rebuild things to understand them.</p>
+            <p>Most software is designed to hide complexity. That's useful for productivity, but it creates a dependency on assumptions you didn't make. When something breaks or behaves unexpectedly, you're stuck guessing. I prefer to know what's actually happening under the surface.</p>
+            <p>Rebuilding things from scratch isn't about reinventing the wheel. It's about understanding why the wheel works. You learn what decisions were made, what tradeoffs exist, and where the constraints actually are. That knowledge makes you less reliant on documentation and better at diagnosing problems.</p>
         </section>
 
         <section>
             <h2>How I Learn</h2>
-            <ul>
-                <li>Breaking systems</li>
-                <li>Observing behavior</li>
-                <li>Rebuilding from scratch</li>
-            </ul>
+            <p>Breaking systems is the fastest way to understand their boundaries. When you push something until it fails, you learn what it was designed to handle and what it wasn't. The failure modes tell you more than the documentation ever will.</p>
+            <p>Observation matters more than theory. You can read about how a protocol works, but watching the actual packets move shows you what's really happening. Behavior is ground truth. Everything else is interpretation.</p>
+            <p>Rebuilding forces you to make the same decisions the original authors did. You hit the same problems, find the same edge cases, and understand why certain patterns exist. It's slower than using a library, but the knowledge stays with you.</p>
         </section>
 
         <section>
             <h2>What I Enjoy Building</h2>
-            <ul>
-                <li>Internals</li>
-                <li>Tooling</li>
-                <li>Low-level systems</li>
-            </ul>
+            <p>Internals are more interesting than interfaces. The public API is what someone decided you should see. The implementation is where the actual work happens. Game engines, file formats, network protocols—the internal structure is where you find the real constraints and clever solutions.</p>
+            <p>Tooling that exposes what's hidden is worth building. Debuggers, disassemblers, memory viewers, protocol analyzers. Anything that makes invisible state visible or lets you interact with a system at a lower level than it was designed for.</p>
+            <p>Low-level systems programming keeps you close to what the machine is actually doing. There's less abstraction between your code and the hardware. You see the cost of every operation. The feedback loop is tighter and the decisions feel more concrete.</p>
         </section>
 
         <section>
             <h2>What I Avoid</h2>
-            <ul>
-                <li>Overengineering</li>
-                <li>Blind dependencies</li>
-                <li>"Just works" mentality</li>
-            </ul>
+            <p>Overengineering happens when you're solving imaginary problems. You build for scale you'll never hit or flexibility you'll never need. The complexity becomes its own maintenance burden. It's better to solve the problem in front of you and refactor when you actually know what's needed.</p>
+            <p>Blind dependencies mean you're trusting code you haven't read. That's sometimes necessary, but it shouldn't be the default. When something goes wrong, you need to know if the problem is yours or theirs. If you can't read the source and understand what it's doing, you're just hoping it works.</p>
+            <p>The "just works" mentality treats tools like magic. When things work, you don't learn anything. When they break, you don't know where to start. Understanding the mechanism makes you self-sufficient. You can fix it, modify it, or replace it if needed.</p>
         </section>
 
         <section>
             <h2>What's Next</h2>
-            <p>Public release when it's ready.</p>
+            <p>There's work in progress that isn't ready to show yet. It'll be public when it's stable enough that explaining it won't require a dozen disclaimers. No roadmap, no deadlines. It's done when it works the way it should.</p>
         </section>
     </div>
 
