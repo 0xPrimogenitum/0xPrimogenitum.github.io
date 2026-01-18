@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0xPrimogenitum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: #0a0a0a;
+            color: #d4d4d4;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        header {
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #a0a0a0;
+            margin-bottom: 120px;
+        }
+
+        section {
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        p, ul {
+            color: #a0a0a0;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: #505050;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 18px;
+                margin-bottom: 80px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            section {
+                margin-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>0xPrimogenitum</h1>
+        </header>
+
+        <p class="intro">I care more about understanding systems than using them.</p>
+
+        <section>
+            <h2>Philosophy</h2>
+            <p>I dislike black boxes. I rebuild things to understand them.</p>
+        </section>
+
+        <section>
+            <h2>How I Learn</h2>
+            <ul>
+                <li>Breaking systems</li>
+                <li>Observing behavior</li>
+                <li>Rebuilding from scratch</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>What I Enjoy Building</h2>
+            <ul>
+                <li>Internals</li>
+                <li>Tooling</li>
+                <li>Low-level systems</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>What I Avoid</h2>
+            <ul>
+                <li>Overengineering</li>
+                <li>Blind dependencies</li>
+                <li>"Just works" mentality</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>What's Next</h2>
+            <p>Public release when it's ready.</p>
+        </section>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
